@@ -1,0 +1,20 @@
+<% if @recipes.length == 0 %>
+    <h1>My Recipes (No Recipes at this time)</h1>
+<% else %>
+    <h1>My Recipes</h1>
+<% end %>
+<% @recipes.each do |recipe| %>
+    <h1><%= recipe.name %></h1>
+    <h4><%= recipe.ingredients %></h4>
+    <h4><%= recipe.cook_time %></h4>
+    <a href="/recipes/<%= recipe.id %>/edit"><button>Edit</button></a>
+    <a href="/recipes/<%= recipe.id %>"><button>More</button></a>
+    <form action="/recipes/<%= recipe.id %>" method="POST">
+
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <button type="submit">DELETE</button>
+
+    </form>
+    <p>==================================</p>
+<% end %>
+<a href="/recipes/new"><button>Add New Recipe</button></a>
