@@ -1,0 +1,9 @@
+<h1>Recipes<h1>
+  <%Recipe.all.each.with_index(1) do |recipe, i|%>
+  <h2>Recipe #<%=i%></h2>
+  <p>Name: <%=recipe.name%></p>
+  <p>Ingredients: <%=recipe.ingredients%></p>
+  <p>Cook Time: <%=recipe.cook_time%></p>
+  <a href="/recipes/<%=recipe.id%>">Click here to view Recipe</a>
+  <br>
+  <%end%>
