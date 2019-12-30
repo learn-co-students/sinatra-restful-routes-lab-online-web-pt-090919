@@ -20,10 +20,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/recipes' do
-    @recipe = Recipe.new(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time]).tap do |recipe|
-      @recipe.save
-      redirect "/recipes/#{recipe.id}"
-    end
+    @recipe = Recipe.new(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+    @recipe.save
+    redirect "/recipes/#{@recipe.id}"
   end
 
   get '/recipes/:id' do
@@ -49,8 +48,9 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  delete '/recipes/:id/delete' do
-    Recipe.find(params[:id]).destroy
+  delete '/recipes/:id' do
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
     redirect '/recipes'
   end
 
