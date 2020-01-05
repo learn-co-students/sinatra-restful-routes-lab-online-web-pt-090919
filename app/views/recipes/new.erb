@@ -1,6 +1,7 @@
-<form action="/recipes/<%= @article.id %>" method="post">
-  <input type="text" name="name">
-  <input type="text" name="ingredients">
-  <input type="text" name="cook_time">
+<h1>Create your recipe: </h1>
+<form action="/recipes" method="post">
+  <p>Recipe Name: <input type="text" name="name"></p>
+  <p>Ingredients: <input type="text" name="ingredients"></p>
+  <p>Cook Time: <input type="text" name="cook_time"></p>
   <input type="submit" value="submit">
 </form>
