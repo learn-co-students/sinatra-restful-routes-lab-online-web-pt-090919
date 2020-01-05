@@ -1,0 +1,10 @@
+<h1>Welcome to Jackie's Kitchen</h1>
+<h2>My Recipes:</h2>
+
+<% Recipe.all.each do |r| %>
+  <p>Recipe Name: <a href="/"><%= r.name %></a></p>
+  <p>Ingredients: <%= r.ingredients %></p>
+  <p>Cook Time: <%= r.cook_time %></p>
+<% end %>
+
+<!--<p> Please <a href="/signup">Sign Up</a> or <a href="/login">Log In</a> to continue.-->
