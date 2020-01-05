@@ -1,0 +1,17 @@
+<h1>Selected Recipe:</h1>
+<br>
+<!--show page displays a single recipe-->
+<h2>Recipe Name: <%= @recipe.name %></h2>
+<p>Ingredients: <%= @recipe.ingredients %></p>
+<p>Cook Time: <%= @recipe.cook_time %></p>
+
+<!--<form action="/recipes/<%= @recipe.id %>/edit" method="GET">-->
+<!--  <input type="submit" value="edit">-->
+<!--</form>-->
+
+<!--add a "delete" button to the show page-->
+<!--deletes via a DELETE request-->
+<form action="/recipes/<%= @recipe.id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="delete">
+</form>
